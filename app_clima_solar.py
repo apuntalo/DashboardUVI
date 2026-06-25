@@ -138,7 +138,7 @@ def mostrar_mapa(lat: float, lon: float, zoom: int = 15, width: int = 700, heigh
     mapa = folium.Map(
         location=[lat, lon],
         zoom_start=zoom,
-        tiles='OpenStreetMap'  # Calles claras y detalladas
+        tiles='OpenStreetMap'
     )
 
     # Añadir un marcador en la ubicación
@@ -152,8 +152,10 @@ def mostrar_mapa(lat: float, lon: float, zoom: int = 15, width: int = 700, heigh
         icon=folium.Icon(color='orange', icon='graduation-cap', prefix='fa')
     ).add_to(mapa)
 
-    # Mostrar el mapa en Streamlit
-    st_folium(mapa, width=width, height=height)
+    # Mostrar el mapa en Streamlit con tamaño exacto
+    mapa_html = mapa._repr_html_()
+    st.components.v1.html(mapa_html, width=width, height=height)
+
 
 # --- FUNCIÓN 3: OBTENER FACTOR DE NUBES ---
 def obtener_factor_nubes(lat: float, lon: float) -> Tuple[float, float]:
