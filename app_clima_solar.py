@@ -524,15 +524,17 @@ def main() -> None:
 
     st.markdown("---")
     st.markdown("""
+        ℹ️ **Nota sobre los datos:** Esta aplicación utiliza servicios de pronóstico. \n
+        Los valores del Índice UV son estimaciones. Para datos precisos, consulta [OpenUV.io](https://www.openuv.io/).
+    """)
+    st.markdown("---")
+    st.markdown("""
         **Desarrollado para el Family Experience 2026**\n
         Tecnología en Desarrollo de Software\n
         **Nicolás Gómez Jaramillo** | [ngomez@usbbog.edu.co](ngomez@usbbog.edu.co) | [https://co.linkedin.com/in/nicolasgomezjaramillo](https://co.linkedin.com/in/nicolasgomezjaramillo)
     """)
-    st.markdown("---")
-    st.markdown("""
-        ℹ️ **Nota sobre los datos:** Esta aplicación utiliza servicios de pronóstico. \n
-        Los valores del Índice UV son estimaciones. Para datos precisos, consulta [OpenUV.io](https://www.openuv.io/).
-    """)
+    # Mostrar el logo de la Universidad al 100% del ancho
+    st.image("LogoUSB.jpg", width='stretch')
 
 # --- PUNTO DE ENTRADA ---
 if __name__ == "__main__":
