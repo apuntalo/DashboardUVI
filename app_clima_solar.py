@@ -239,6 +239,8 @@ def calcular_uvi_ajustado(uvi: float, factor_nubes: float) -> float:
     """
     Aplica la atenuación por nubes al índice UV original.
 
+    [COMPLETAR] Debes escribir la operación matemática que calcula el UVI ajustado.
+
     La fórmula de atenuación es: uvi_ajustado = uvi * (1 - factor_nubes).
 
     Args:
@@ -253,7 +255,11 @@ def calcular_uvi_ajustado(uvi: float, factor_nubes: float) -> float:
         >>> print(f"UVI ajustado: {uvi_ajustado:.1f}")
         UVI ajustado: 8.9  # 10.8 * (1 - 0.18) = 8.856 ≈ 8.9
     """
-    return uvi * (1.0 - factor_nubes)
+    # --- COMPLETA AQUÍ LA OPERACIÓN ---
+    # Reemplaza el 0.0 con la fórmula correcta
+    resultado = 0.0  # <--- Cambia esta línea
+    # --- FIN DE LA ZONA PARA COMPLETAR ---
+    return resultado
 
 
 # --- FUNCIÓN 5: CLASIFICAR UVI ---
