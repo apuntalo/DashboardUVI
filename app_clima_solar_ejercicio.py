@@ -52,7 +52,7 @@ RANGOS_UV: Dict[str, Dict[str, Union[float, str]]] = {
     },
     "Extremo": {
         "min": None,  # <--- Reemplaza None (ej. 11.0)
-        "max": None,  # <--- Reemplaza None (deja float('inf') para que no tenga límite superior)
+        "max": None,  # <--- Reemplaza None (ej. 14.0)
         "color": "#8B00FF"  # Púrpura
     }
 }
@@ -86,8 +86,8 @@ def obtener_ubicacion_predeterminada() -> Tuple[Optional[float], Optional[float]
         Si no se completan, retorna (None, None).
     """
     # --- COMPLETA AQUÍ LAS COORDENADAS ---
-    latitud: Optional[float] = None   # <--- Reemplaza None con la latitud (ej. 4.750600)
-    longitud: Optional[float] = None  # <--- Reemplaza None con la longitud (ej. -74.030370)
+    latitud: Optional[float] = None   # <--- Reemplaza None con la latitud (ej. 4.751045)
+    longitud: Optional[float] = None  # <--- Reemplaza None con la longitud (ej. -74.029690)
     # --- FIN DE LA ZONA PARA COMPLETAR ---
 
     return latitud, longitud
