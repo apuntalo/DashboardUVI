@@ -67,8 +67,8 @@ def obtener_ubicacion_predeterminada() -> Tuple[float, float]:
         >>> print(f"Latitud: {lat}, Longitud: {lon}")
         Latitud: 4.7506, Longitud: -74.03037
     """
-    latitud: float = 4.750600
-    longitud: float = -74.030370
+    latitud: float = 4.751045
+    longitud: float = -74.029690
     return latitud, longitud
 
 
