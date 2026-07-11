@@ -472,6 +472,7 @@ def main() -> None:
 
             # 5. Mostrar resultados en columnas
             col1, col2, col3, col4 = st.columns(4)
+            # TODO: para las metric, usar history/forecast de la API
             col1.metric("🌞 UV Original", f"{uvi_original:.1f}")
 
             if incluir_nubes:
@@ -489,7 +490,10 @@ def main() -> None:
 
             # Mostrar el gauge
             st.subheader("📊 Medidor de Índice UV")
-            st.plotly_chart(crear_gauge_uvi(uvi_ajustado, color), use_container_width=True)
+            if incluir_nubes:
+                st.plotly_chart(crear_gauge_uvi(uvi_ajustado, color), use_container_width=True)
+            else:
+                st.plotly_chart(crear_gauge_uvi(uvi, color), use_container_width=True)
 
             # 6. Mostrar el nivel de riesgo con el color asociado
             st.markdown(
