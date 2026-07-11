@@ -409,6 +409,8 @@ def main() -> None:
     # Antes del bloque if st.button(...):
     porcentaje_nubes = 0  # Valor por defecto
 
+
+
     # Selector de fototipo
     fototipo = st.selectbox(
         "🧴 Selecciona tu fototipo de piel (para estimar tiempo de quemadura):",
@@ -449,17 +451,21 @@ def main() -> None:
                 icono_nubes = "☀️"
 
             # 3. Calcular UVI ajustado
-            uvi_ajustado: float = calcular_uvi_ajustado(uvi_original, factor_nubes)
+            if incluir_nubes:
+                uvi_ajustado: float = calcular_uvi_ajustado(uvi_original, factor_nubes)
+                uvi_mostrar = uvi_ajustado
+            else:
+                uvi_mostrar = uvi_original
 
             # 4. Clasificar el UVI ajustado
             mensaje: str
             color: str
-            mensaje, color = clasificar_uvi(uvi_ajustado)
+            mensaje, color = clasificar_uvi(uvi_mostrar)
 
             # Calcular tiempo de quemadura (solo si el UVI es > 0)
-            if uvi_ajustado > 0:
+            if uvi_mostrar > 0:
                 factor_fototipo = FACTORES_FOTOTIPO[fototipo]
-                tiempo_quemadura = (50 / uvi_ajustado) * factor_fototipo
+                tiempo_quemadura = (50 / uvi_mostrar) * factor_fototipo
                 # Mostrar con un formato limpio
                 if tiempo_quemadura > 120:
                     tiempo_mostrar = "> 120 min"
@@ -490,10 +496,7 @@ def main() -> None:
 
             # Mostrar el gauge
             st.subheader("📊 Medidor de Índice UV")
-            if incluir_nubes:
-                st.plotly_chart(crear_gauge_uvi(uvi_ajustado, color), use_container_width=True)
-            else:
-                st.plotly_chart(crear_gauge_uvi(uvi, color), use_container_width=True)
+            st.plotly_chart(crear_gauge_uvi(uvi_mostrar, color), use_container_width=True)
 
             # 6. Mostrar el nivel de riesgo con el color asociado
             st.markdown(
